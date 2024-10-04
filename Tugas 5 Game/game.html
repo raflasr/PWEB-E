@@ -3,22 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Tangkap Kotak - Versi Kompleks</title>
+    <title>Game Tangkap Kotak - Versi Mobile dan Desktop</title>
     <style>
         body {
             text-align: center;
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
         }
 
         canvas {
             background-color: #f0f0f0;
             display: block;
-            margin: 20px auto;
+            margin: 0 auto;
+            touch-action: none; /* Disable touch scrolling while interacting with the game */
         }
 
         #score {
             font-size: 20px;
-            margin-top: 10px;
+            margin: 10px 0;
         }
 
         #game-over {
@@ -56,12 +59,18 @@
         let score = 0;
         let lives = 3;
 
-        // Listen for keypresses
+        // Listen for keypresses and touch events
         let rightPressed = false;
         let leftPressed = false;
+        let touchX = null;
 
         document.addEventListener("keydown", keyDownHandler, false);
         document.addEventListener("keyup", keyUpHandler, false);
+
+        // Touch events for mobile devices
+        canvas.addEventListener("touchstart", touchStartHandler, false);
+        canvas.addEventListener("touchmove", touchMoveHandler, false);
+        canvas.addEventListener("touchend", touchEndHandler, false);
 
         function keyDownHandler(e) {
             if (e.key === "Right" || e.key === "ArrowRight") {
@@ -77,6 +86,26 @@
             } else if (e.key === "Left" || e.key === "ArrowLeft") {
                 leftPressed = false;
             }
+        }
+
+        // Touch event handlers for mobile
+        function touchStartHandler(e) {
+            const touch = e.touches[0];
+            touchX = touch.clientX;
+        }
+
+        function touchMoveHandler(e) {
+            const touch = e.touches[0];
+            const diffX = touch.clientX - touchX;
+            playerX += diffX / 5; // Sesuaikan kecepatan sentuhan
+            touchX = touch.clientX;
+
+            // Cegah halaman bergeser saat disentuh
+            e.preventDefault();
+        }
+
+        function touchEndHandler(e) {
+            touchX = null;
         }
 
         // Draw player (kotak pemain)
