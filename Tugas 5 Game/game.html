@@ -29,17 +29,6 @@
             font-size: 30px;
             color: red;
         }
-
-        .control-buttons {
-            margin-top: 20px;
-        }
-
-        .control-buttons button {
-            padding: 10px 20px;
-            font-size: 18px;
-            margin: 0 10px;
-            cursor: pointer;
-        }
     </style>
 </head>
 <body>
@@ -49,20 +38,11 @@
     <canvas id="gameCanvas" width="400" height="500"></canvas>
     <div id="game-over">Game Over</div>
 
-    <!-- Control buttons for mobile and laptop -->
-    <div class="control-buttons">
-        <button id="leftButton">Kiri</button>
-        <button id="rightButton">Kanan</button>
-    </div>
-
     <script>
         const canvas = document.getElementById('gameCanvas');
         const ctx = canvas.getContext('2d');
         const scoreDisplay = document.getElementById('score');
         const gameOverDisplay = document.getElementById('game-over');
-
-        const leftButton = document.getElementById('leftButton');
-        const rightButton = document.getElementById('rightButton');
 
         // Setup game variables
         const playerWidth = 60;
@@ -86,18 +66,6 @@
 
         document.addEventListener("keydown", keyDownHandler, false);
         document.addEventListener("keyup", keyUpHandler, false);
-
-        // Mobile button controls
-        leftButton.addEventListener("mousedown", () => leftPressed = true);
-        leftButton.addEventListener("mouseup", () => leftPressed = false);
-        rightButton.addEventListener("mousedown", () => rightPressed = true);
-        rightButton.addEventListener("mouseup", () => rightPressed = false);
-
-        // For touch devices (mobile)
-        leftButton.addEventListener("touchstart", () => leftPressed = true);
-        leftButton.addEventListener("touchend", () => leftPressed = false);
-        rightButton.addEventListener("touchstart", () => rightPressed = true);
-        rightButton.addEventListener("touchend", () => rightPressed = false);
 
         // Touch events for mobile devices
         canvas.addEventListener("touchstart", touchStartHandler, false);
