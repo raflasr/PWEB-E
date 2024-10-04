@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Tangkap Kotak - Versi Kompleks</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        canvas {
+            background-color: #f0f0f0;
+            display: block;
+            margin: 20px auto;
+        }
+
+        #score {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+
+        #game-over {
+            display: none;
+            font-size: 30px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Game Tangkap Kotak</h1>
+    <p>Gerakkan kotak untuk menangkap objek yang jatuh!</p>
+    <div id="score">Skor: 0 | Nyawa: 3</div>
+    <canvas id="gameCanvas" width="400" height="500"></canvas>
+    <div id="game-over">Game Over</div>
+
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        const scoreDisplay = document.getElementById('score');
+        const gameOverDisplay = document.getElementById('game-over');
+
+        // Setup game variables
+        const playerWidth = 60;
+        const playerHeight = 20;
+        let playerX = (canvas.width - playerWidth) / 2;
+        const playerSpeed = 7;
+
+        const objectWidth = 20;
+        const objectHeight = 20;
+        let objectX = Math.random() * (canvas.width - objectWidth);
+        let objectY = 0;
+        let objectSpeed = 3; // Kecepatan awal objek jatuh
+
+        let score = 0;
+        let lives = 3;
+
+        // Listen for keypresses
+        let rightPressed = false;
+        let leftPressed = false;
+
+        document.addEventListener("keydown", keyDownHandler, false);
+        document.addEventListener("keyup", keyUpHandler, false);
+
+        function keyDownHandler(e) {
+            if (e.key === "Right" || e.key === "ArrowRight") {
+                rightPressed = true;
+            } else if (e.key === "Left" || e.key === "ArrowLeft") {
+                leftPressed = true;
+            }
+        }
+
+        function keyUpHandler(e) {
+            if (e.key === "Right" || e.key === "ArrowRight") {
+                rightPressed = false;
+            } else if (e.key === "Left" || e.key === "ArrowLeft") {
+                leftPressed = false;
+            }
+        }
+
+        // Draw player (kotak pemain)
+        function drawPlayer() {
+            ctx.beginPath();
+            ctx.rect(playerX, canvas.height - playerHeight, playerWidth, playerHeight);
+            ctx.fillStyle = "#0095DD";
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        // Draw falling object (objek yang jatuh)
+        function drawObject() {
+            ctx.beginPath();
+            ctx.rect(objectX, objectY, objectWidth, objectHeight);
+            ctx.fillStyle = "#DD9500";
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        // Update game status
+        function updateGame() {
+            if (lives <= 0) {
+                gameOver();
+                return;
+            }
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawPlayer();
+            drawObject();
+
+            // Move player
+            if (rightPressed && playerX < canvas.width - playerWidth) {
+                playerX += playerSpeed;
+            } else if (leftPressed && playerX > 0) {
+                playerX -= playerSpeed;
+            }
+
+            // Move object
+            objectY += objectSpeed;
+
+            // Check if object is caught
+            if (objectY + objectHeight > canvas.height - playerHeight &&
+                objectX > playerX && objectX < playerX + playerWidth) {
+                score++;
+                updateScore();
+                resetObject();
+                // Increase difficulty by increasing object speed every 5 points
+                if (score % 5 === 0) {
+                    objectSpeed += 1;
+                }
+            }
+
+            // Reset object if it falls off the screen
+            if (objectY > canvas.height) {
+                lives--;
+                updateScore();
+                resetObject();
+            }
+
+            requestAnimationFrame(updateGame);
+        }
+
+        function resetObject() {
+            objectX = Math.random() * (canvas.width - objectWidth);
+            objectY = 0;
+        }
+
+        function updateScore() {
+            scoreDisplay.textContent = `Skor: ${score} | Nyawa: ${lives}`;
+        }
+
+        function gameOver() {
+            gameOverDisplay.style.display = 'block';
+        }
+
+        // Mulai game
+        updateGame();
+    </script>
+</body>
+</html>
