@@ -1,0 +1,129 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #3498db;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s; /* Menambahkan efek transisi saat hover */
+}
+
+nav ul li a:hover,
+nav ul li a:active {
+    color: #ffcc00; /* Warna saat diklik atau hover */
+}
+
+main {
+    padding: 20px;
+}
+
+h2 {
+    color: #3498db;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 5px;
+}
+
+.featured-image, .language-image {
+    width: 100px; /* Atur lebar gambar sesuai kebutuhan */
+    height: 70px; /* Atur tinggi gambar sesuai kebutuhan */
+    object-fit: cover; /* Untuk memastikan gambar tidak terdistorsi */
+    border-radius: 8px;
+    margin: 10px 0;
+}
+
+.language-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.language {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 10px;
+    padding: 15px;
+    flex: 1 1 30%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.resource-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.resource-list li {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 10px 0;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.resource-item {
+    display: flex;
+    justify-content: space-between; /* Memisahkan teks dan gambar */
+    align-items: center; /* Mengatur gambar dan teks agar sejajar secara vertikal */
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 10px 0;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.resource-text {
+    flex: 1; /* Memberikan ruang lebih untuk teks */
+    margin-right: 20px; /* Memberi jarak antara teks dan gambar */
+}
+
+.resource-image {
+    width: 100px; /* Atur ukuran gambar */
+    height: auto;
+    border-radius: 8px;
+}
+
+.justify-text {
+    text-align: justify; /* Mengatur teks agar rata kanan dan kiri */
+}
+
+.language-link {
+    color: inherit; /* Menggunakan warna teks dari elemen induk */
+    text-decoration: none; /* Menghapus garis bawah dari tautan */
+}
+
+.language-link:hover {
+    text-decoration: underline; /* Menambahkan garis bawah saat hover untuk memberi umpan balik */
+}
+
+footer {
+    text-align: center;
+    padding: 15px 0;
+    background-color: #3498db;
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
