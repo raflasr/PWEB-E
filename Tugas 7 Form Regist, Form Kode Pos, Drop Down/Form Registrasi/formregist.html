@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Registrasi Mahasiswa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="number"], input[type="email"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .autocomplete-suggestions {
+            border: 1px solid #ccc;
+            max-height: 150px;
+            overflow-y: auto;
+            background-color: white;
+            position: absolute;
+            z-index: 1000;
+        }
+
+        .autocomplete-suggestions div {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .autocomplete-suggestions div:hover {
+            background-color: #f0f0f0;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-bottom: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Form Registrasi Mahasiswa</h2>
+
+<form id="formRegistrasi">
+    <label for="nama">Nama Mahasiswa:</label>
+    <input type="text" id="nama" name="nama" placeholder="Masukkan nama mahasiswa">
+
+    <label for="nim">NIM:</label>
+    <input type="number" id="nim" name="nim" placeholder="Masukkan NIM">
+
+    <label for="mataKuliah">Mata Kuliah:</label>
+    <input type="text" id="mataKuliah" name="mataKuliah" placeholder="Masukkan mata kuliah">
+
+    <label for="dosen">Dosen:</label>
+    <input type="text" id="dosen" name="dosen" placeholder="Masukkan nama dosen">
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" placeholder="Masukkan email">
+    <div class="error-message" id="emailError">Email tidak boleh kosong!</div>
+
+    <button type="submit">Daftar</button>
+</form>
+
+<div class="autocomplete-suggestions" id="namaSuggestions"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
