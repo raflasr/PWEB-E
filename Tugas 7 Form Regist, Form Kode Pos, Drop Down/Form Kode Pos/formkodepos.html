@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="stylesalamat.css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="scriptalamat.js"></script>
+    <title>Kode Pos</title>
+</head>
+<body>
+    <div id="container">
+        <div class="main-container">
+            <h1>PENCARIAN KODE POS</h1>
+            <p>Cari kode pos di wilayah Indonesia dengan memasukkan beberapa kata kunci pencarian di bawah ini.</p>
+            <div class="table">
+                <div class="table-row">
+                    <label class="input-label table-cell" for="provinsi">Provinsi:</label>
+                    <input type="text" class="table-cell" id="provinsi" placeholder="Masukkan provinsi" size="23"/>
+                </div>
+                <div class="table-row">
+                    <label class="input-label table-cell" for="kabkot">Kabupaten/Kota:</label>
+                    <input type="text" class="table-cell" id="kabkot" placeholder="Masukkan kabupaten/kota" size="23"/>
+                </div>
+                <div class="table-row">
+                    <label class="input-label table-cell" for="kecamatan">Kecamatan:</label>
+                    <input type="text" class="table-cell" id="kecamatan" placeholder="Masukkan kecamatan" size="23"/>
+                </div>
+                <div class="table-row">
+                    <label class="input-label table-cell" for="kelurahan">Kelurahan:</label>
+                    <input type="text" class="table-cell" id="kelurahan" placeholder="Masukkan kelurahan" size="23"/>
+                </div>
+                <div class="table-row">
+                    <label class="input-label table-cell" for="kodepos">Kode Pos:</label>
+                    <input type="text" class="table-cell" id="kodepos" placeholder="Masukkan kode pos" size="23"/>
+                </div>
+            </div>
+            <input type="submit" id="Search_button" class="button" value="Search" />
+        </div>
+        <div id="search_result"></div>
+    </div>
+</body>
+</html>
