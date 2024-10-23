@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Kontak</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        form {
+            max-width: 500px;
+            margin: auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Formulir Kontak</h2>
+    <form id="contactForm">
+        <label for="name">Nama:</label>
+        <input type="text" id="name" name="name" placeholder="Masukkan nama Anda">
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Masukkan email Anda">
+
+        <label for="phone">Nomor Telepon:</label>
+        <input type="tel" id="phone" name="phone" placeholder="Masukkan nomor telepon Anda">
+
+        <label for="message">Pesan:</label>
+        <textarea id="message" name="message" rows="4" placeholder="Tulis pesan Anda di sini"></textarea>
+
+        <button type="submit">Kirim</button>
+
+        <div id="errorMessages" class="error"></div>
+    </form>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            let errorMessages = '';
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+
+            // Validasi nama
+            if (name === '') {
+                errorMessages += 'Nama harus diisi.<br>';
+            }
+
+            // Validasi email
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (email === '') {
+                errorMessages += 'Email harus diisi.<br>';
+            } else if (!emailPattern.test(email)) {
+                errorMessages += 'Format email tidak valid.<br>';
+            }
+
+            // Validasi nomor telepon
+            if (phone === '') {
+                errorMessages += 'Nomor telepon harus diisi.<br>';
+            }
+
+            // Validasi pesan
+            if (message === '') {
+                errorMessages += 'Pesan harus diisi.<br>';
+            }
+
+            // Tampilkan error atau kirim data
+            const errorContainer = document.getElementById('errorMessages');
+            if (errorMessages) {
+                errorContainer.innerHTML = errorMessages;
+            } else {
+                errorContainer.innerHTML = '';
+                alert('Formulir berhasil dikirim!');
+                // Di sini Anda bisa menambahkan logika untuk mengirim data ke server
+            }
+        });
+    </script>
+
+</body>
+</html>
