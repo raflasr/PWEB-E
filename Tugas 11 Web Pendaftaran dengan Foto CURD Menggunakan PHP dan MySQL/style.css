@@ -1,0 +1,224 @@
+/* Reset some basic styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Main container for centering content */
+.container {
+    width: 80%;
+    max-width: 800px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    overflow: hidden;
+}
+
+/* Sidebar styling */
+.sidebar {
+    background-color: #2e68cd; /* Light teal color for sidebar */
+    padding: 20px;
+    color: #fff;
+    width: 30%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sidebar img {
+    width: 80px;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+
+.sidebar h2 {
+    margin-top: 10px;
+    font-size: 1.5em;
+}
+
+.sidebar p {
+    font-size: 0.9em;
+    margin-top: 10px;
+}
+
+/* Links in the sidebar */
+.sidebar a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1em;
+    margin-top: 20px;
+    display: block;
+}
+
+.sidebar a:hover {
+    text-decoration: underline;
+}
+
+/* Form container styling */
+.form-container {
+    width: 70%;
+    padding: 40px;
+}
+
+/* Form heading */
+.form-container h2 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Instructions under the title */
+.form-container p {
+    color: #888;
+    margin-bottom: 30px;
+}
+
+/* Form inputs styling */
+.form-container input[type="text"],
+.form-container input[type="date"],
+.form-container input[type="email"],
+.form-container select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+    color: #333;
+}
+
+.form-container select {
+    background-color: #fff;
+}
+
+/* Button styling */
+.form-container button[type="submit"],
+.form-container button[type="button"] {
+    width: 100px;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.form-container button[type="submit"] {
+    background-color: #5483d5;
+    color: #fff;
+}
+
+.form-container button[type="button"] {
+    background-color: #ccc;
+    color: #333;
+}
+
+.form-container button[type="submit"]:hover {
+    background-color: #5483d5;
+}
+
+.form-container button[type="button"]:hover {
+    background-color: #aaa;
+}
+
+/* Table styling for registered students page */
+.table-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.table-container h2 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: #333;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table th, table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+table th {
+    background-color: #5483d5;
+    color: #fff;
+}
+
+table td a {
+    text-decoration: none;
+    color: #5483d5;
+}
+
+table td a:hover {
+    text-decoration: underline;
+}
+
+/* Button styling for the "New +" button */
+.table-container .new-btn {
+    padding: 10px 20px;
+    background-color: #5483d5;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.table-container .new-btn:hover {
+    background-color: #5483d5;
+}
+
+/* Card styling for viewing individual student data */
+.card-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.card-container h2 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: #333;
+    text-align: center;
+}
+
+.card {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.card p {
+    margin-bottom: 10px;
+    font-size: 1em;
+    color: #555;
+}
